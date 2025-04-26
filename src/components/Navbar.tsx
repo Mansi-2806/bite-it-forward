@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, Donate, Users } from "lucide-react";
+import { Menu, X, Home, Heart, Users } from "lucide-react";
 import ShareBiteLogo from "./ShareBiteLogo";
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
               <Home className="h-4 w-4 mr-1" /> Home
             </Link>
             <Link to="/donate" className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-sharebite-red">
-              <Donate className="h-4 w-4 mr-1" /> Donate Food
+              <Heart className="h-4 w-4 mr-1" /> Donate Food
             </Link>
             <Link to="/volunteer" className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-sharebite-red">
               <Users className="h-4 w-4 mr-1" /> Volunteer
@@ -73,7 +73,7 @@ const Navbar = () => {
               className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-sharebite-red hover:bg-sharebite-beige rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Donate className="h-5 w-5 mr-2" /> Donate Food
+              <Heart className="h-5 w-5 mr-2" /> Donate Food
             </Link>
             <Link to="/volunteer"
               className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-sharebite-red hover:bg-sharebite-beige rounded-md"

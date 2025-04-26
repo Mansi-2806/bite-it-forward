@@ -10,6 +10,7 @@ import Donate from "./pages/Donate";
 import Volunteer from "./pages/Volunteer";
 import AboutUs from "./pages/AboutUs";
 import DonationTracking from "./pages/DonationTracking";
+import FoodBankLocations from "./pages/FoodBankLocations";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/track" element={<DonationTracking />} />
+            <Route path="/food-banks" element={<FoodBankLocations />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

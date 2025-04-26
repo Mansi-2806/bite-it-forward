@@ -1,25 +1,18 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PackageCheck, Package, Truck, Award, User, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const DonationTracking = () => {
-  const [trackingId, setTrackingId] = useState("");
-  const [email, setEmail] = useState("");
-  const [showTrackingResult, setShowTrackingResult] = useState(false);
+  const [showDonations, setShowDonations] = useState(false);
   const { toast } = useToast();
 
-  const handleTrackingSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // This would normally validate against a backend API
-    setShowTrackingResult(true);
+  const handleViewDonations = () => {
+    setShowDonations(true);
     toast({
-      title: "Donation found!",
-      description: "We've found your donation details.",
+      title: "Donations loaded!",
+      description: "Here are your recent donations.",
     });
   };
 
@@ -52,50 +45,23 @@ const DonationTracking = () => {
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-sharebite-dark">Track Your Donation</h1>
-          <p className="mt-2 text-gray-600">Follow the journey of your food donation and see your impact</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-sharebite-dark">Your Donations</h1>
+          <p className="mt-2 text-gray-600">Track your contributions and impact</p>
         </div>
 
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Enter Your Tracking Information</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleTrackingSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="trackingId">Tracking ID</Label>
-                <Input
-                  id="trackingId"
-                  placeholder="e.g., SB-2023-0472"
-                  value={trackingId}
-                  onChange={(e) => setTrackingId(e.target.value)}
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="The email you used when donating"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              
+        {!showDonations ? (
+          <Card className="text-center py-8">
+            <CardContent>
+              <h2 className="text-2xl font-semibold mb-4">View Your Recent Donations</h2>
               <Button 
-                type="submit" 
-                className="w-full bg-sharebite-red hover:bg-sharebite-red/90"
+                onClick={handleViewDonations}
+                className="bg-sharebite-red hover:bg-sharebite-red/90"
               >
-                Track Donation
+                Load Donations
               </Button>
-            </form>
-          </CardContent>
-        </Card>
-
-        {showTrackingResult && (
+            </CardContent>
+          </Card>
+        ) : (
           <div className="space-y-8">
             <Card>
               <CardHeader className="bg-green-50 border-b">

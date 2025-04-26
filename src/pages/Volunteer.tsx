@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +12,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Users, Truck, Package, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Volunteer = () => {
   const { toast } = useToast();
@@ -109,11 +115,18 @@ const Volunteer = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="interest">How would you like to help?</Label>
-                  <Textarea 
-                    id="interest" 
-                    placeholder="Tell us about your interests and how you'd like to contribute..." 
-                    required
-                  />
+                  <Select required>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select your volunteer role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="food-recovery">Food Recovery Volunteer</SelectItem>
+                      <SelectItem value="delivery">Delivery Partner</SelectItem>
+                      <SelectItem value="event">Event Organizer</SelectItem>
+                      <SelectItem value="food-bank">Food Bank Support</SelectItem>
+                      <SelectItem value="others">Others</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 
                 <div className="space-y-2">

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
@@ -42,9 +41,9 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-white rounded-full opacity-10 transform scale-110"></div>
               <img 
-                src="/lovable-uploads/0665fe92-2215-45d0-a0ec-902784e1dfce.png" 
-                alt="ShareBite Logo" 
-                className="relative z-10 w-64 h-64 object-contain animate-bounce-slow"
+                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04"
+                alt="People in Need" 
+                className="relative z-10 w-64 h-64 object-cover rounded-full"
               />
             </div>
           </div>
